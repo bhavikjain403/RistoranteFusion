@@ -32,9 +32,9 @@ class DishDetail extends Component {
                 &nbsp;
                 {new Intl.DateTimeFormat('en-US', {
                     year: 'numeric',
-                    month: 'long',
+                    month: 'short',
                     day: '2-digit'
-                }).format(new Date(comment.date))}
+                }).format(new Date(Date.parse(comment.date)))}
                 </p>
             </li>
         )
@@ -60,12 +60,14 @@ class DishDetail extends Component {
         const dishComment = this.renderComments(this.props.dish.comments);
 
         return (
-            <div className='row'>
-                <div className='col-12 col-md-5 m-1'>
-                    {dishItem}
-                </div>
-                <div className='col-12 col-md-5 m-1'>
-                    {dishComment}    
+            <div className='container'>
+                <div className='row'>
+                    <div className='col-12 col-md-5 m-1'>
+                        {dishItem}
+                    </div>
+                    <div className='col-12 col-md-5 m-1'>
+                        {dishComment}    
+                    </div>
                 </div>
             </div>
         )
