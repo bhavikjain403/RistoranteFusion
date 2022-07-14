@@ -1,7 +1,7 @@
 import { PROMOTIONS } from "../shared/promotions";
 
 export const Promotions = (state =  PROMOTIONS, action)=>{
-    switch (acton.type) {
+    switch (action.type) {
         default:
             return state;
     }
