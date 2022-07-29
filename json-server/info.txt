@@ -1,0 +1,5 @@
+To start the server, type the following in the terminal
+json-server --watch db.json -d 2000 -p 3001
+
+-d 2000 produces a delay of 2000ms
+-p 3001 specifies that server will run on port 3001
