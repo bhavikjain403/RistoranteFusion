@@ -7,6 +7,7 @@ import { Row } from 'reactstrap';
 import { Col } from 'reactstrap';
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
+import { FadeTransform, Fade, Stagger } from "react-animation-components"
 
 const maxLength = (len)=>(val)=>!(val) || (val.length<=len);
 const minLength = (len)=>(val)=>(val) && (val.length>=len);
@@ -86,6 +87,10 @@ class CommentForm extends Component{
 function RenderDish({dish}) {
         if (dish != null) {
             return (
+                <FadeTransform in
+                transformProps={{
+                    exitTransform: 'scale(0.5) translateY(-50%)'
+                }}>
                 <Card> 
                   <CardImg width="100%" src={baseUrl+dish.image} alt={dish.name} />
                   <CardBody>
@@ -93,6 +98,7 @@ function RenderDish({dish}) {
                     <CardText>{dish.description}</CardText>
                   </CardBody>
                 </Card>
+                </FadeTransform>
             );
         }
         else {
@@ -107,8 +113,9 @@ function RenderComments({comments, postComment, dishId}){
         }
         const cmnts = comments.map(comment => {
         return (
+            <Fade in>
             <li key={comment.id}>
-                <p>{comment.comment}</p>
+                <p>{comment.comment}</p>    
                 <p>-- {comment.author},
                 &nbsp;
                 {new Intl.DateTimeFormat('en-US', {
@@ -118,6 +125,7 @@ function RenderComments({comments, postComment, dishId}){
                 }).format(new Date(Date.parse(comment.date)))}
                 </p>
             </li>
+            </Fade>
         )
         }
     )
@@ -125,7 +133,9 @@ function RenderComments({comments, postComment, dishId}){
             <div>
                 <h4> Comments </h4>
                 <ul className='list-unstyled'>
+                    <Stagger in>
                     {cmnts}
+                    </Stagger>
                 </ul>
                 <CommentForm dishId={dishId} postComment={postComment}/>
             </div>
