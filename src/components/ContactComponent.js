@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import { Breadcrumb, BreadcrumbItem, Button, Label, Col, Row } from "reactstrap";
 import { Link } from "react-router-dom";
-import { Control, Form, Errors, actions } from "react-redux-form";
+import { Control, Form, Errors } from "react-redux-form";
 
 const required = (val)=>val && val.length;
 const maxLength = (len)=>(val)=>!(val) || (val.length<=len);
@@ -37,7 +37,7 @@ export default class Contact extends Component{
                 <div className="col-12">
                 <h3>Location Information</h3>
                 </div>
-                <div className="col-12 col-sm-4 offset-sm-1">
+                <div className="col-12">
                         <h5>Our Address</h5>
                         <address>
                         121, Clear Water Bay Road<br />
@@ -48,13 +48,10 @@ export default class Contact extends Component{
                         <i className="fa fa-envelope"></i>: <a href="mailto:confusion@food.net">confusion@food.net</a>
                         </address>
                 </div>
-                <div className="col-12 col-sm-6 offset-sm-1">
-                    <h5>Map of our Location</h5>
-                </div>
-                <div className="col-12 col-sm-11 offset-sm-1">
+                <div className="col-12">
                     <div className="btn-group" role="group">
                         <a role="button" className="btn btn-primary" href="tel:+85212345678"><i className="fa fa-phone"></i> Call</a>
-                        <a role="button" className="btn btn-info"><i className="fa fa-skype"></i> Skype</a>
+                        <a role="button" className="btn btn-info" href="skype.com"><i className="fa fa-skype"></i> Skype</a>
                         <a role="button" className="btn btn-success" href="mailto:confusion@food.net"><i className="fa fa-envelope-o"></i> Email</a>
                     </div>
                 </div>

@@ -2,12 +2,13 @@ import React from 'react';
 import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { baseUrl } from '../shared/baseUrl';
-import { FadeTransform, Fade, Stagger } from 'react-animation-components';
+import { Fade, Stagger } from 'react-animation-components';
 import { Loading } from "./LoadingComponent";
 
 function RenderLeader({leader}) {
     return(
-        <div key={leader.id} className="col-12 mt-5">
+        <div>
+        <div key={leader.id} className="col-12 mt-5 d-none d-md-block">
             <Media tag="li">
                 <Media left middle>
                     <Media object src={baseUrl+leader.image} alt={leader.name} />
@@ -18,6 +19,17 @@ function RenderLeader({leader}) {
                     <p>{leader.description}</p>
                 </Media>    
             </Media>
+        </div>
+        <div className='row d-md-none mt-5'>
+            <div className='col-12'><img src={baseUrl+leader.image} alt={leader.name}/></div>
+            <div className='col-12'>
+                <div className='row'>
+                <div className='col-12'><h2>{leader.name}</h2></div>
+                <div className='col-12'><h5 >{leader.designation}</h5></div>
+                <div className='col-12'>{leader.description}</div>
+                </div>
+            </div>
+        </div>
         </div>
     );
 }
@@ -109,13 +121,15 @@ function About(props) {
                     <h2>Corporate Leadership</h2>
                 </div>
                 <div className="col-12">
+                    
                     <Media list>
                         <RenderContent
                             leaders={props.leaders}
                             isLoading={props.leaderLoading}
                             errMess={props.leaderErrMess}
-                        />   
+                        />
                     </Media>
+                    
                 </div>
             </div>
         </div>

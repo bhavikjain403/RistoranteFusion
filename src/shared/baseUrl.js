@@ -1,1 +1,1 @@
-export const baseUrl='http://localhost:3001/'   // Address of json-server
+export const baseUrl='https://restaurant-fusion-server.herokuapp.com/'   // Address of json-server
