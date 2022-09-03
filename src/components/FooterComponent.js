@@ -40,7 +40,7 @@ export default function Footer(props){
             </div>
             <div className="row justify-content-center">             
                 <div className="col-auto">
-                    <p>© Created by Bhavik</p>
+                    <p>© Created by Bhavik : <a href="https://bhavikj.netlify.app" target="_blank" rel="noopener noreferrer">www.bhavikj.netlify.app</a></p>
                 </div>
             </div>
         </div>
